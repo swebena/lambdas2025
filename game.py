@@ -13,6 +13,19 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    print("W pressed - move up")
+                elif event.key == pygame.K_a:
+                    print("A pressed - move left")
+                elif event.key == pygame.K_s:
+                    print("S pressed - move down")
+                elif event.key == pygame.K_d:
+                    print("D pressed - move right")
+                elif event.key == pygame.K_SPACE:
+                    print("Space pressed - jump/shoot/etc.")
+                elif event.key == pygame.K_ESCAPE:
+                    print("Escape pressed - exiting")
 
     def update(self):
         # TODO: logic
