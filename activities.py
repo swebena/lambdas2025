@@ -14,10 +14,13 @@ class Activity:
 class MainMenuActivity(Activity):
     def __init__(self):
         super().__init__()
-    if event.type == pygame.KEYDOWN:
-        if event.unicode.isDigit():
-            number = int(event.unicode)
-            print(f"TODO: load level {number}")
+
+    @classmethod
+    def handle_pygame_event(self, event):
+        if event.type == pygame.KEYDOWN:
+            if event.unicode.isDigit():
+                number = int(event.unicode)
+                print(f"TODO: load level {number}")
 
     @classmethod
     def draw(self, game):
