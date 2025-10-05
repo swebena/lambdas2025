@@ -1,4 +1,5 @@
 import pygame
+import sys
 from helpers.font_scrappy import draw_text
 
 MAIN_MENU_ACTIVITY = 1
@@ -24,6 +25,7 @@ class MainMenuActivity(Activity):
                 print(f"TODO: load level {number}")
             elif event.key == pygame.K_q:
                 pygame.quit()
+                sys.exit()
 
     @classmethod
     def update(self, game):
