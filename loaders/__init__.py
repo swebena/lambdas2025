@@ -60,5 +60,7 @@ def parse_level(level):
         'abspath': level['abspath'],
         'name': level['name'],
         'number': level['number'],
+        # and again
+        'tmx_data': tmx_data,
     }
     return grid, metadata

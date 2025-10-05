@@ -1,6 +1,7 @@
 import pygame
 import sys
 import loaders
+from utils import iter_grid
 from helpers.font_scrappy import draw_text
 
 MAIN_MENU_ACTIVITY = 1
@@ -57,6 +58,13 @@ class GameActivity(Activity):
     @classmethod
     def draw(self, game):
         game.screen.fill((0, 0, 0))
+        for x, y, cell in iter_grid(game.currentLevel):
+            for item in cell:
+                tmx = game.currentLevelMetadata['tmx_data']
+                img = tmx.get_tile_image_by_gid(cell)
+                drawx = x * 32
+                drawy = y * 32
+                screen.blit(img, (drawx, drawy))
 
     @classmethod
     def handle_pygame_event(self, game, event):
@@ -69,6 +77,8 @@ class GameActivity(Activity):
                 print("S pressed - move down")
             elif event.key == pygame.K_d:
                 print("D pressed - move right")
+            elif event.key == pygame.K_r:
+                print("R pressed - reset")
             elif event.key == pygame.K_SPACE:
                 print("Space pressed - jump/shoot/etc.")
             elif event.key == pygame.K_ESCAPE:
