@@ -22,6 +22,8 @@ class MainMenuActivity(Activity):
             if event.unicode.isdigit():
                 number = int(event.unicode)
                 print(f"TODO: load level {number}")
+            elif event.key == pygame.K_q:
+                pygame.quit()
 
     @classmethod
     def update(self, game):
