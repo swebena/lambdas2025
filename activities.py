@@ -1,4 +1,5 @@
 import pygame
+from helpers.font_scrappy import draw_text
 
 MAIN_MENU_ACTIVITY = 1
 GAME_ACTIVITY = 2
@@ -23,8 +24,20 @@ class MainMenuActivity(Activity):
                 print(f"TODO: load level {number}")
 
     @classmethod
+    def update(self, game):
+        pass
+
+    @classmethod
     def draw(self, game):
+        start = (40, 40)
+        lines = [
+                "<Untitled Project>",
+                "Press a number to play the respective level",
+                "Q to quit",
+                ]
         game.screen.fill((0, 0, 0))
+        for i, line in enumerate(lines):
+            draw_text(game.screen, line, 80, 90*(i+1))
 
 class GameActivity(Activity):
     def __init__(self):
