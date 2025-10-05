@@ -50,11 +50,15 @@ class GameActivity(Activity):
         super().__init__()
 
     @classmethod
+    def update(self, game):
+        pass
+
+    @classmethod
     def draw(self, game):
         game.screen.fill((0, 0, 0))
 
     @classmethod
-    def handle_pygame_event(self, event):
+    def handle_pygame_event(self, game, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w:
                 print("W pressed - move up")
@@ -78,4 +82,7 @@ class GameActivity(Activity):
             return
         lvl = loaders.get_level_by_number(number)
         print(f"{lvl}")
-        parsed = loaders.parse_level(lvl)
+        parsed, metadata = loaders.parse_level(lvl)
+        game.currentLevel = parsed
+        game.currentLevelMetadata = metadata
+        game.currentActivity = GameActivity

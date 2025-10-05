@@ -11,7 +11,7 @@ class Game:
         self.running = True
         self.currentActivity = activities.MainMenuActivity
         self.currentLevel = [[]] # empty
-        self.currentLevelMetadata = [[]] # empty
+        self.currentLevelMetadata = {}
 
     def handle_events(self):
         for event in pygame.event.get():
