@@ -18,11 +18,11 @@ class Game:
             self.currentActivity.handle_pygame_event(event)
 
     def update(self):
-        self.currentActivity.update(game)
+        self.currentActivity.update(self)
 
     def draw(self):
         self.screen.fill((30, 30, 30))
-        self.currentActivity.draw(game)
+        self.currentActivity.draw(self)
         pygame.display.flip()
 
     def run(self):

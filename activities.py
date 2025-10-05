@@ -19,7 +19,7 @@ class MainMenuActivity(Activity):
     @classmethod
     def handle_pygame_event(self, event):
         if event.type == pygame.KEYDOWN:
-            if event.unicode.isDigit():
+            if event.unicode.isdigit():
                 number = int(event.unicode)
                 print(f"TODO: load level {number}")
 
