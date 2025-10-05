@@ -32,7 +32,7 @@ class GameActivity(Activity):
         game.screen.fill((0, 0, 0))
 
     @classmethod
-    def handle_pygame_event(self,  event):
+    def handle_pygame_event(self, event):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w:
                 print("W pressed - move up")
