@@ -71,10 +71,11 @@ class GameActivity(Activity):
                 print("Escape pressed - exiting to main menu")
 
     @classmethod
-    def try_load_level_by_number(game, number):
+    def try_load_level_by_number(self, game, number):
         #assuming happy path
         if number not in (1, 2, 3):
             print(f"TODO: level {number} not implemented")
             return
-        lvl = get_level_by_number(num)
-        parsed = parse_level(lvl)
+        lvl = loaders.get_level_by_number(number)
+        print(f"{lvl}")
+        parsed = loaders.parse_level(lvl)

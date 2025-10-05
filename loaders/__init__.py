@@ -28,7 +28,7 @@ def get_level_by_number(num):
     A dummy picker
     """
     levels = levels_all()
-    level = utils.find_first(levels, lambda level: level.number == num)
+    level = find_first(levels, lambda i: i['number'] == num)
     return level
 
 def parse_level(level):
@@ -44,7 +44,8 @@ def parse_level(level):
     # initialize empty matrix with zeros
     grid = [[0 for _ in range(tmx_data.width)] for _ in range(tmx_data.height)]
     # fill matrix only with valid gids
-    for x, y, gid in layer.tiles():
+    for x, y, extra in layer.tiles():
+        gid = tmx_data.get_tile_gid(x, y, 0)
         result = [gid] if (gid in valid_mappings) else []
         grid[y][x] = OrderedSet(result)
     metadata = {

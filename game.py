@@ -17,7 +17,7 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-            self.currentActivity.handle_pygame_event(game, event)
+            self.currentActivity.handle_pygame_event(self, event)
 
     def update(self):
         self.currentActivity.update(self)

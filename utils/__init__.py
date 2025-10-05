@@ -25,7 +25,7 @@ class OrderedSet:
 
 def find_first(seq, predicate):
     for elem in seq:
-        if predicate(seq):
+        if predicate(elem):
             return elem
     return None
 

@@ -54,3 +54,25 @@ valid_mappings = {
         ASSIGNMENT_OPERATOR: lambda t: t,#
         # AND_OPERATOR: # Not implemented!
         }
+
+OPERANDS = [
+        PENGUIN_OPERAND,
+        WALL_OPERAND,
+        COIN_OPERAND,
+        FLAG_OPERAND,
+        BOMB_OPERAND,
+        ROCK_OPERAND,
+        ]
+
+OPERATORS = [
+        ASSIGNMENT_OPERATOR,
+        ]
+
+TRAITBLOCKS = [
+        CTRL_TRAIT,
+        STOP_TRAIT,
+        PUSH_TRAIT,
+        GOAL_TRAIT,
+        BANG_TRAIT,
+        GHOST_TRAIT,
+        ]
