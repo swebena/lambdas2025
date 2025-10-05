@@ -39,7 +39,8 @@ class MainMenuActivity(Activity):
         lines = [
                 "<Untitled Project>",
                 "Press a number to play the respective level",
-                "Q to quit",
+                "Press ESC to return to main menu (back here)",
+                "Press Q to quit",
                 ]
         game.screen.fill((0, 0, 0))
         for i, line in enumerate(lines):
