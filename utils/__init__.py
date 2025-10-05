@@ -32,3 +32,8 @@ def find_first(seq, predicate):
 def build_matrix(width, height, init_value = 0):
     matrix = [[init_value for _ in range(height)] for _ in range(width)]
     return matrix
+
+def iter_grid(grid):
+    for x, row in enumerate(grid):
+        for y, cell in enumerate(row):
+            yield (x, y, cell)

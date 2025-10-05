@@ -1,5 +1,6 @@
 import pygame
 import sys
+import loaders
 from helpers.font_scrappy import draw_text
 
 MAIN_MENU_ACTIVITY = 1
@@ -10,7 +11,7 @@ class Activity:
         pass
     def update(self, game):
         pass
-    def handle_pygame_event(self, event):
+    def handle_pygame_event(self, game, event):
         pass
 
 class MainMenuActivity(Activity):
@@ -18,11 +19,12 @@ class MainMenuActivity(Activity):
         super().__init__()
 
     @classmethod
-    def handle_pygame_event(self, event):
+    def handle_pygame_event(self, game, event):
+        # guard clauses? deadline
         if event.type == pygame.KEYDOWN:
             if event.unicode.isdigit():
                 number = int(event.unicode)
-                print(f"TODO: load level {number}")
+                GameActivity.try_load_level_by_number(game, number)
             elif event.key == pygame.K_q:
                 pygame.quit()
                 sys.exit()
@@ -67,3 +69,12 @@ class GameActivity(Activity):
             elif event.key == pygame.K_ESCAPE:
                 game.currentActivity = MainMenuActivity
                 print("Escape pressed - exiting to main menu")
+
+    @classmethod
+    def try_load_level_by_number(game, number):
+        #assuming happy path
+        if number not in (1, 2, 3):
+            print(f"TODO: level {number} not implemented")
+            return
+        lvl = get_level_by_number(num)
+        parsed = parse_level(lvl)

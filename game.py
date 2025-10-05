@@ -10,12 +10,14 @@ class Game:
         self.fps = FPS
         self.running = True
         self.currentActivity = activities.MainMenuActivity
+        self.currentLevel = [[]] # empty
+        self.currentLevelMetadata = [[]] # empty
 
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-            self.currentActivity.handle_pygame_event(event)
+            self.currentActivity.handle_pygame_event(game, event)
 
     def update(self):
         self.currentActivity.update(self)
