@@ -42,7 +42,7 @@ def parse_level(level):
     # find the first tile layer
     layer = next(l for l in tmx_data.layers if hasattr(l, 'tiles'))
     # initialize empty matrix with zeros
-    grid = [[0 for _ in range(tmx_data.width)] for _ in range(tmx_data.height)]
+    grid = [[OrderedSet() for _ in range(tmx_data.width)] for _ in range(tmx_data.height)]
     # fill matrix only with valid gids
     for x, y, extra in layer.tiles():
         gid = tmx_data.get_tile_gid(x, y, 0)
@@ -63,4 +63,5 @@ def parse_level(level):
         # and again
         'tmx_data': tmx_data,
     }
+    print(f"{grid}")
     return grid, metadata

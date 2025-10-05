@@ -2,6 +2,7 @@ import pygame
 import sys
 import loaders
 from utils import iter_grid
+from helpers.pygame import get_tile_surface
 from helpers.font_scrappy import draw_text
 
 MAIN_MENU_ACTIVITY = 1
@@ -59,12 +60,13 @@ class GameActivity(Activity):
     def draw(self, game):
         game.screen.fill((0, 0, 0))
         for x, y, cell in iter_grid(game.currentLevel):
-            for item in cell:
+            for gidcell in cell:
                 tmx = game.currentLevelMetadata['tmx_data']
-                img = tmx.get_tile_image_by_gid(cell)
+                surface = get_tile_surface(tmx, gidcell)
+                #surface = pygame.Surface.convert_alpha(img_tuple)
                 drawx = x * 32
                 drawy = y * 32
-                screen.blit(img, (drawx, drawy))
+                game.screen.blit(surface, (drawy, drawx))
 
     @classmethod
     def handle_pygame_event(self, game, event):
